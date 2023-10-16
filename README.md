@@ -9,8 +9,7 @@ Before you start working, you'll need a local copy of the repository on your mac
 Open a terminal or command prompt.
 Navigate to the directory where you want to store the project.
 Run the command:
-git clone [URL]
-Replace [URL] with the repository URL.
+git clone git@github.com:haydenwbc/blackjack-python.git
 
 2. Always Pull Before You Start Working:
 To ensure you have the latest changes from the main branch:
