@@ -34,12 +34,22 @@ def deal_cards(num_players, shoe): #takes a generated shoe as well as a number o
 def print_hands(hands):
     num_players = len(hands) - 1
     i = 0
+    
+    #Print Player hands
     while i < num_players:
         print(f"Hand of Player {i +1}:")
-        print(f"{hands[f'Player {i+1}'][0][0]} of {hands[f'Player {i+1}'][0][1]}s") #Print first card
-        print(f"{hands[f'Player {i+1}'][1][0]} of {hands[f'Player {i+1}'][1][1]}s") #Print second card
+        for index, card in enumerate(hands[f"Player {i+1}"]):
+            print(f"{index+1}. {card[0]} of {card[1]}")
+        i += 1
+        print()
+            
+    print("Dealer Hand:")
+    for index, card in enumerate(hands["Dealer"]):
+        if (index+1) == 2:
+            print(f"{index + 1}. Face Down Card")
+        else:
+            print(f"{index+1}. {card[0]} of {card[1]}")
 
-    
 
 
 
