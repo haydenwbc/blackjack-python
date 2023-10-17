@@ -16,3 +16,5 @@ while True:
     screen.blit(table_surface, (0,0)) #block image transfer (one image on another image)      0,0 is at top left corner of box screen      
     pygame.display.update()
     clock.tick(60) #Framerate
+    
+    
