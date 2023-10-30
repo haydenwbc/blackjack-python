@@ -49,10 +49,45 @@ def print_hands(hands):
             print(f"{index + 1}. Face Down Card")
         else:
             print(f"{index+1}. {card[0]} of {card[1]}")
+            
+def print_player_hand(player, hands):
+    print(f"{player}'s Hand:")
+    for index, card in enumerate(hands[player]):
+        print(f"{index+1}. {card[0]} of {card[1]}")
+        i += 1
 
+            
+def init_bank(num_players):
+    bank = {}
+    i = 0
+    while i < num_players:
+        bank[f"Player {i+1}"] = 1000
+        i += 1
+        
+    return bank
 
+def place_bet(bank, player):
+    bet_amt = input(f"{player}, place a bet between $1 and ${bank[player]}: ")
+    bank[player] -= bet_amt
+    
+    return bank 
 
-
+def play_turn(shoe, bank): 
+    
+    hands = deal_cards(len(bank.keys()), shoe)
+    
+    for player in bank.keys():
+        
+        print(f"{player}'s turn:")
+        place_bet(bank, player)
+    
+        
+        while True:
+            print_player_hand(player, hands)
+            action = input("Do you want to hit or stand? ").lower()
+            if action == "hit":
+                hands[player].append(shoe.pop())
+                print(f"You drew a {hands[player][-1][0]} of {hands[player][-1][1]}")
 
 
 
